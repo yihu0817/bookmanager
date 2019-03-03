@@ -1,6 +1,6 @@
 <template>
   <div>
-    <list-book v-bind:book="book"></list-book>
+    <list-book v-bind:book="book" v-on:size="getSize"></list-book>
     <div id="add-book">
       <legend>添加书籍</legend>
       <div class="form-group">
@@ -39,15 +39,18 @@ export default {
     //函数名作key,函数体作为value
     addBook() {
        this.book = {
-        id:  5,
+        id:  ++this.size,
         author: this.bookAuthor,
         name: this.bookName,
         price: this.bookPrice,
         count: this.bookCount
       }
       console.log(JSON.stringify(this.book));
+    },
+    getSize(length){
+      this.size = length;
+      console.log("size >>> :"+this.size);
     }
-
     
   },
   

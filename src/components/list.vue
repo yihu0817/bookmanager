@@ -48,7 +48,7 @@ export default {
   props:['book'],
   data() {
     return {
-      book: this.book,
+ 
       books: [
         {
           id: 1,
@@ -96,6 +96,11 @@ export default {
       return sum;
       
     }
+  },
+  // data中数据和methds方法初始化创建完成
+  created(){
+     console.log("created>> :");
+     this.$emit('size',this.books.length);
   },
   watch:{
     book:function(){
